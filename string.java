@@ -4,11 +4,11 @@ import java.util.regex.*;// (API->application program interface) API is nothing 
 import java.util.Arrays;
 public class string {
     public static void main(String args[]) {
-        String s = "kishok";
-        System.out.println("String concation:" + s.concat(" "+"born in mumbai"));
+        String s = "kahoot";
+        System.out.println("String concation:" + s.concat(" "+"is an play store app"));
         System.out.println(s);
-        String k = "kishok";
-        String j = new String("kishok");
+        String k = "kahoot";
+        String j = new String("kahoot");
         //-> if we check string with == then it will results in false
         //->if we check with using the equals operator
         if(s.equals(j)){
@@ -80,8 +80,15 @@ public class string {
         System.out.println("If the string not contains specified character returns false:"+l.contains("321"));
         System.out.println(71*Math.pow(31,2)+70*Math.pow(31,1)+71);
         System.out.println("GFG".hashCode());// Formula[s[0]*31^(n-1)+s[1]*31^(n-2)+..............+s[n-1]]
+        /*
+        try->which is used to check the condition for example:
+        int n=10;
+        System.out.println(n/0);->gives an error called arthimetic exception
+        float f=10.0;
+         System.out.println(f/0);-> it does not give error because the float value gives output as infinity(if it is positive value(+infinity)if it is negative value(-infinity))
+        */
         try {
-            String[] i = l.split("\\d");
+            String[] i = l.split("\\d");                           
         }
         catch (Exception e){
             System.out.println("The error for regex mismatch:"+e);
