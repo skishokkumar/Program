@@ -79,7 +79,7 @@ public class string {
         System.out.println("If the string contains specified character returns true:"+l.contains("123"));
         System.out.println("If the string not contains specified character returns false:"+l.contains("321"));
         System.out.println(71*Math.pow(31,2)+70*Math.pow(31,1)+71);
-        System.out.println("GFG".hashCode());// Formula[s[0]*31^(n-1)+s[1]*31^(n-2)+..............+s[n-1]]
+        System.out.println("GFG".hashCode());// Formula[s[0]*31*(n-1)+s[1]*31*(n-2)+..............+s[n-1]]
         /*
         try->which is used to check the condition for example:
         int n=10;
