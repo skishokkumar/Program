@@ -1,6 +1,6 @@
 /*******************************************************************************INFIX TO PREFIX******************************************************************************************/
 #include<stdio.h>
-#include<ctype.h>
+#include/<ctype.h>
 #include<string.h>
 char stack[20],top=-1;
 void push(char ch){
@@ -25,7 +25,6 @@ int main(){
    char s[30],*q,p;
    scanf("%s",s);
    q=strrev(s);
-   printf("%s\n",q);
    char a[strlen(s)];
    int j=0;
    while(*q!='\0'){
