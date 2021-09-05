@@ -1,0 +1,127 @@
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct abc{
+  int data;
+  struct abc *next;
+}node;
+node *head=NULL,*tail=NULL;
+int n=5;
+void circular(){
+   node *tem;
+   int a,i;
+   for(i=0;i<n;i++){
+    tem=malloc(sizeof(node));
+    scanf("%d",&a);
+    tem->data=a;
+    if(head==NULL){
+        head=tail=tem;
+    }
+    else{
+        tail->next=tem;
+        tail=tem;
+    }
+    tail->next=head;
+
+   }
+}
+void display(){
+   node *p;
+   p=head;
+   while(p->next!=head){
+    printf("%d ",p->data);
+    p=p->next;
+   }
+   printf("%d\t",p->data);
+}
+void insert(){
+  node *p;
+  p=malloc(sizeof(node));
+  p->data=10;
+  p->next=head;
+  head=p;
+  tail->next=head;
+}
+void insertend(){
+  node *p,*k;
+  p=malloc(sizeof(node));
+  p=head;
+  k->data=10;
+  while(p->next!=head){
+    p=p->next;
+  }
+  p->next=k;
+  k->next=tail;
+  tail->next=head;
+}
+void insertat(int data){
+  node *p,*tem;
+  tem=malloc(sizeof(node));
+  p=head;
+  tem->data=10;
+  int i;
+  if(data==1){
+    insert();
+  }
+  else if(data==n-1){
+    insertend();
+  }
+  else{
+    for(i=1;i<data-1;i++){
+        p=p->next;
+    }
+    tem->next=p->next;
+    p->next=tem;
+  }
+}
+void delete1(){
+  node *p;
+  p=head;
+  head=p->next;
+  tail->next=p->next;
+  free(p);
+}
+void delete2(){
+  node *p,*q;
+  p=head;
+  while(p->next!=head){
+    q=p;
+    p=p->next;
+  }
+  q->next=head;
+  free(p);
+}
+void delete3(int data){
+    int i;
+    node *p,*k;
+    p=head;
+  for(i=1;i<data-1;i++){
+    p=p->next;
+  }
+  k=p->next;
+  p->next=k->next;
+  free(k);
+}
+int main(){
+  circular();
+  display();
+  printf("\n");
+  insert();
+  n++;
+  display();
+  printf("\n");
+  insertend();
+  n++;
+  display();
+  printf("\n");
+  insertat(3);
+  display();
+  printf("\n");
+  delete1();
+  display();
+  printf("\n");
+  delete2();
+  display();
+  printf("\n");
+  delete3(3);
+  display();
+}
