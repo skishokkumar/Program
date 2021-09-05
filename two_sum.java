@@ -34,26 +34,16 @@ Only one valid answer exists.
 /******************************************solution***************************************************************/
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-
-    Map<Integer, Integer> map = new HashMap<>();
-
+    Map<Integer, Integer> m = new HashMap<>();
     for (int i = 0; i < nums.length; i++) {
-
-        int complement = target - nums[i];
-
-        if (map.containsKey(complement)) {
-
-            return new int[] { map.get(complement), i };
-
+       int sum = target - nums[i];
+       if (m.containsKey(sum)) {
+         return new int[] { m.get(sum), i };
         }
-
-        map.put(nums[i], i);
-
-    }
-
-    throw new IllegalArgumentException("No two sum solution");
-
-} 
+     m.put(nums[i], i);
+}
+throw new IllegalArgumentException("No two sum solution");
+    } 
     }
         
     
