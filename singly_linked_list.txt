@@ -1,0 +1,128 @@
+#include<stdio.h>
+#include<stdlib.h>
+int i,n=5;
+typedef struct abc{
+int data;
+struct abc *next;
+}node;
+node *head=NULL,*last=NULL;
+void create(int data){
+  node *temp;
+  int n;
+  for(i=0;i<data;i++){
+      temp=malloc(sizeof(node));
+      scanf("%d",&n);
+      temp->data=n;
+      temp->next=NULL;
+      if(head==NULL)
+        head=last=temp;
+      else{
+        last->next=temp;
+        last=temp;
+      }
+  }
+}
+void display(){
+   node *p;
+   int k=5;
+   p=head;
+   while(p!=NULL){
+    printf("%d\t",p->data);
+    p=p->next;
+   }
+}
+void firstinsert(){
+    node *temp;
+    temp=malloc(sizeof(node));
+    temp->data=10;
+  if(head==NULL){
+    head=temp;
+  }
+  else{
+    temp->next=head;
+    head=temp;
+  }
+}
+void endinsert(){
+    node *p,*temp=head;
+    p=malloc(sizeof(node));
+    p->data=10;
+    while(temp->next!=NULL){
+        temp=temp->next;
+    }
+    temp->next=p;
+    p->next=NULL;
+}
+void inset(int data,int size){
+   node *op,*temp=head;
+   op=malloc(sizeof(node));
+   op->data=10;
+   if(data==1){
+     firstinsert();
+   }
+   else if(data==size-1){
+      endinsert();
+   }
+   else{
+     for(i=1;i<data-1;i++){
+        temp=temp->next;
+     }
+     op->next=temp->next;
+     temp->next=op;
+   }
+
+}
+void firstdelete(){
+   node *ptr;
+   ptr=head;
+   head=ptr->next;
+   free(ptr);
+}
+void enddelete(){
+  node *ptr;
+  ptr=head;
+  while(ptr->next->next!=NULL){
+    ptr=ptr->next;
+  }
+  ptr->next=NULL;
+}
+void deleteatpoint(int data){
+  node *temp=head;
+  for(i=1;i<data-1;i++){
+        temp=temp->next;
+     }
+  temp->next=temp->next->next;
+}
+int main(){
+   create(n);
+   printf("\n linked list created:");
+   display();
+   printf("\n");
+   firstinsert();
+   n++;
+   display();
+   printf("\n");
+   endinsert();
+   n++;
+   display();
+    printf("\n");
+   inset(4,n);
+   display();
+   printf("\n");
+   enddelete();
+   display();
+   printf("\n");
+   deleteatpoint(3);
+   display();
+}
+/*for reversing use this
+void reverse(){
+    node *prev=NULL,*current=head,*next=NULL;
+    while(current!=NULL){
+        next=current->next;
+        current->next=prev;
+        prev=current;
+        current=next;
+    }
+    head=prev;
+}*/
